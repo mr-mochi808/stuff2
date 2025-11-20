@@ -1,0 +1,33 @@
+Everforest
+
+Background - #4F5B58
+Nav n Tab - #374145
+Accent - #A7C080
+Text - #7FBBB3, #E67E80, #D699B6, and more if needed
+Card BG - (unimplemented rn) -  #272E33
+
+
+Rosé Pine
+
+Background - #232136
+Nav n Tab - #44415a
+Accent - #ea9a97
+Text - #eb6f92, #f6c177, #3e8fb0, and/or #c4a7e7
+Card BG - (unimplemented rn) -  #232136
+
+
+Gruvbox
+
+Background - #504945
+Nav n Tab - #282828
+Accent - #d79921
+Text - #d65d0e
+Card BG - (unimplemented rn, may be implemented in full release) #3c3836
+
+
+Lilac
+
+Background - #7A6D88
+Nav n Tab - #443B54
+Accent - #857996
+Card BG - (unimplemented rn) #1A1622

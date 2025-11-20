@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="settings.css">
+  <link rel="stylesheet" href="styles.css">
+  <title>Settings</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <script src="https://cdn.jsdelivr.net/gh/FogNetwork/ABC/index.js"></script>
+
+  <!-- Load saved colors BEFORE render to prevent flash -->
+  <script>
+    const r = document.documentElement;
+    ['accent', 'main', 'background', 'navbar', 'textcolor2', 'box'].forEach(k => {
+      const c = localStorage.getItem(`${k}Color`);
+      if (c) r.style.setProperty(`--${k}-color`, c);
+    });
+  </script>
+
+
+</head>
+
+<body>
+  <!-- Navbar -->
+  <div class="sidebar">
+    <a href="index.html" class="sb-icon icon-home"></a>
+    <a href="games.html" class="sb-icon icon-game"></a>
+    <a href="settings.html" class="sb-icon icon-settings"></a>
+  </div>
+  <div class="content">
+    <!-- SETTINGS PANEL -->
+    <div id="settings-container">
+      <div class="settings-box">
+        <aside class="settings-sidebar">
+          <button class="tab active" data-tab="cloaking">Cloaking</button>
+          <button class="tab" data-tab="appearance">Appearance</button>
+          <button class="tab" data-tab="proxy">Proxy</button>
+          <button class="tab" data-tab="misc">Misc</button>
+        </aside>
+
+        <!-- Settings content -->
+        <section class="settings-content">
+          <!-- Cloaking -->
+          <div class="panel active" id="cloaking">
+            <h2>Cloaking</h2>
+            Avoid blockers from seeing your screen while gaming
+            <div class="setting">
+              <label>Open in About Blank</label>
+              <button id="aboutBlankButton" class="btn-small"
+                onclick="openGame('https://deeperthandeepest.netlify.app')">Launch
+              </button>
+            </div>
+            <div class="setting">
+              <label>Open in Blob Cloak</label>
+              <button id="blobCloakButton" class="btn-small">Launch</button>
+            </div>
+            <br>
+            <p style="font-size: 12px;">May not work on all browsers</p>
+
+          </div>
+
+          <!-- APPEARANCE -->
+          <div class="panel" id="appearance">
+            <h2>Appearance</h2>
+
+            <div class="setting">
+              <label for="backgroundColor">Preset Themes</label>
+              <select onchange="setTheme(this.value)">
+                <option value="nord" selected>Nord (Default)</option>
+                <option value="catppuccin_macchiato">Catppuccin</option>
+                <option value="everforest">Everforest</option>
+                <option value="rosepine">Rosé Pine</option>
+                <option value="gruvbox">Gruvbox</option>
+                <option value="lilac">Lilac</option>
+                <option value="coral">Coral</option>
+                <option value="daydream">Daydream</option>
+                <option value="ocean">Ocean</option>
+                <option value="woodwork">Woodwork</option>
+
+              </select>
+            </div>
+
+            <div class="setting">
+              <label for="backgroundColor">Background Color</label>
+              <input type="color" id="backgroundColor" value="#2E3440">
+            </div>
+
+            <div class="setting">
+              <label for="navbarColor">Nav Color</label>
+              <input type="color" id="navbarColor" value="#434C5E">
+            </div>
+            <div class="setting">
+              <label for="accentColor">Accent Color</label>
+              <input type="color" id="accentColor" value="#88C0D0">
+            </div>
+
+            <div class="setting">
+              <label for="mainColor">Text Color</label>
+              <input type="color" id="mainColor" value="#ECEFF4">
+            </div>
+
+            <div class="setting">
+              <label for="boxColor">Box Color</label>
+              <input type="color" id="boxColor">
+            </div>
+
+            <div class="setting">
+              <label for="textcolor2Color">Text Color 2</label>
+              <input type="color" id="textcolor2Color" value="#D08770">
+            </div>
+
+
+            <div class="setting">
+              <button id="resetColors" class="btn-small">Reset to Default</button>
+            </div>
+          </div>
+
+          <!-- Proxy -->
+          <div class="panel" id="proxy">
+            <h2>Proxy Settings</h2>
+            <h1 style="font-size:50px;">Coming Soon</h1>
+          </div>
+
+          <!-- Misc -->
+          <div class="panel" id="misc">
+            <h2>Miscellaneous</h2>
+            <div>
+              <input type="text" id="gameUrl" placeholder="Enter a game link..." style="width: 300px;">
+              <button class="btn-small" onclick="launchCustom()">Launch</button>
+            </div>
+            <div class="setting">
+              <p>Vert3x Download</p>
+              <a class="link" href="https://vert3xofficial.netlify.app/#>" class="button">Learn More</a>
+              <a href="vert3x.zip" class="link" download> Download</a>
+            </div>
+            <div class="setting">
+              <p style="margin-left: auto; margin-right: auto;">
+                Credits:
+              </p>
+              <br>
+              <p> <a href="https://gitlab.com/3kh0/3kh0-assets" class="link">3kh0</a> - Many of the games on this
+                website</p>
+              <br>
+              <p> <a class="link" href="https://genizymath.github.io/index.html">Genizy</a>, <a class="link"
+                  href="https://truffled.lol">Bog</a>, and <a class="link" href="https://www.slqnt.dev/">Slqnt</a> - The
+                web ports on this site</p>
+              <br>
+              <p> <a href="https://github.com/FogNetwork/ABC" class="link">AB:C JS Library</a>
+                - Blob and About Blank cloaking</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <!-- Load ABC first -->
+  <script src="https://cdn.jsdelivr.net/gh/FogNetwork/ABC/index.js"></script>
+
+  <!-- Tab switching and reset button only -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Tab switching
+      document.querySelectorAll(".tab").forEach(tab => {
+        tab.addEventListener("click", () => {
+          document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+          document.querySelectorAll(".panel").forEach(p => p.classList.remove("active"));
+          tab.classList.add("active");
+          document.getElementById(tab.dataset.tab).classList.add("active");
+        });
+      });
+
+      // Reset button stays here (colors.js defines resetColors)
+      const resetBtn = document.getElementById("resetColors");
+      if (resetBtn) {
+        resetBtn.addEventListener("click", () => {
+          if (typeof resetColors === "function") resetColors();
+        });
+      }
+    });
+  </script>
+
+  <!-- External scripts -->
+  <script src="scripts/colors.js" defer></script>
+  <script src="scripts/cloak.js" defer></script>
+
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+INSTRUCTIONS
+
+Go to the game you want, click on the folder, 
+then click "GAMESTART.html" or sometimes it will
+be "index.html" for some games it might be 
+"(game).html"

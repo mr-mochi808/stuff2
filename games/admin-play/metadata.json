@@ -1,0 +1,64 @@
+{
+    "game_id": 880573,
+    "title": "Admin",
+    "url": "https://jbodah.itch.io/admin-play",
+    "cover_url": "https://img.itch.zone/aW1nLzUwMzU3NDcucG5n/original/iFBqmC.png",
+    "screenshots": [
+        "https://img.itch.zone/aW1hZ2UvODgwNTczLzUwMzU4MDIucG5n/original/SU5233.png",
+        "https://img.itch.zone/aW1hZ2UvODgwNTczLzUwMzU4MDMucG5n/original/MpZ%2FQX.png",
+        "https://img.itch.zone/aW1hZ2UvODgwNTczLzUwMzU4MDUucG5n/original/Cif5go.png"
+    ],
+    "description": "After the new year, no one remembers their passwords. You play the detective to unlock the computers at your new job!",
+    "updated_at": "2025-09-23T02:33:00",
+    "author": "Multiple authors",
+    "author_url": "https://jbodah.itch.io",
+    "extra": {
+        "status": "Released",
+        "platforms": [
+            "HTML5"
+        ],
+        "authors": {
+            "jbodah": "https://jbodah.itch.io",
+            "GabeMalk": "https://gabemalk.itch.io",
+            "ZeroStas": "https://zerostas.itch.io"
+        },
+        "genre": {
+            "Puzzle": "https://itch.io/games/genre-puzzle"
+        },
+        "tools": {
+            "Godot": "https://itch.io/games/made-with-godot"
+        },
+        "tags": {
+            "Comedy": "https://itch.io/games/tag-comedy",
+            "Detective": "https://itch.io/games/tag-detective",
+            "Game Jam": "https://itch.io/games/tag-game-jam",
+            "My First Game Jam": "https://itch.io/games/tag-my-first-game-jam",
+            "Mystery": "https://itch.io/games/tag-mystery",
+            "office": "https://itch.io/games/tag-office",
+            "password": "https://itch.io/games/tag-password",
+            "Pixel Art": "https://itch.io/games/tag-pixel-art",
+            "Point & Click": "https://itch.io/games/tag-point-and-click",
+            "Typing": "https://itch.io/games/tag-typing"
+        },
+        "code_license": {
+            "MIT License": "https://itch.io/games/code-mit"
+        },
+        "length": "About a half-hour",
+        "languages": {
+            "English": "https://itch.io/games/lang-en"
+        },
+        "inputs": {
+            "Keyboard": "https://itch.io/games/input-keyboard",
+            "Mouse": "https://itch.io/games/input-mouse"
+        },
+        "links": {
+            "Source code": "https://github.com/jbodah/game_jam-locked"
+        }
+    },
+    "rating": {
+        "average": 4.7,
+        "votes": 1123
+    },
+    "errors": [],
+    "external_downloads": []
+}

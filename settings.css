@@ -1,0 +1,264 @@
+:root {
+  --nord0: #2e3440;
+  --nord1: #3b4252;
+  --nord2: #434c5e;
+  --nord3: #4c566a;
+  --nord4: #d8dee9;
+  --nord5: #e5e9f0;
+  --nord6: #eceff4;
+  --nord7: #8fbcbb;
+  --nord8: #88c0d0;
+  --nord9: #81a1c1;
+  --nord10: #5e81ac;
+
+  --accent-color: var(--nord8);
+  --main-color: var(--nord6);
+  --background-color: var(--nord3);
+  --navbar-color: var(--nord2);
+
+  /* You forgot these two */
+  --textcolor2-color: #ffffff;
+  --box-color: #3b4252;
+}
+
+
+/*  Modern font stack */
+body,
+button,
+input,
+select,
+textarea {
+  font-family: 'Quicksand', 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  -webkit-font-smoothing: antialiased;
+  color: var(--main-color);
+  background: var(--background-color);
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Cloaking launch buttons */
+.btn-small {
+  background-color: var(--accent-color);
+  color: var(--main-color);
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+/* Hover + focus effects */
+.btn-small:hover,
+.btn-small:focus {
+  background-color: color-mix(in srgb, var(--accent-color) 80%, var(--main-color));
+  transform: translateY(-2px);
+}
+
+/* Keep size consistent (no jump on hover/focus) */
+.btn-small:active {
+  transform: translateY(0);
+}
+
+/* Optional: match dark/light backgrounds */
+#cloaking .btn-small {
+  box-shadow: 0 0 8px color-mix(in srgb, var(--accent-color) 30%, black);
+}
+
+/*  Container centers content and ensures full height */
+#settings-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: clamp(40px, 8vh, 100px) 20px;
+  box-sizing: border-box;
+  animation: fadeBackdrop 0.75s ease-out both;
+  transform: translateY(-15px);
+  /* Move up by 50 pixels */
+}
+
+/*  Main Settings Box */
+.settings-box {
+  display: flex;
+  flex-direction: column;
+  background: var(--navbar-color);
+  /* box color */
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  width: min(90%, 1200px);
+  height: 650px;
+  transition: all 0.3s ease;
+  animation: settingsFadeIn 0.75s ease-out both;
+}
+
+/* Tabs on top */
+.settings-sidebar {
+  background: var(--navbar-color);
+  padding: clamp(8px, 1.5vw, 16px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(6px, 1vw, 16px);
+  width: 100%;
+  border-bottom: 1px solid var(--nord3);
+  box-sizing: border-box;
+}
+
+/* 🪄 Tabs */
+.tab {
+  background: transparent;
+  border: none;
+  color: var(--main-color);
+  padding: clamp(8px, 1vw, 12px) clamp(14px, 2vw, 20px);
+  border-radius: 8px;
+  font-size: clamp(0.9rem, 1.1vw, 1rem);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 600;
+}
+
+.tab:hover {
+  background: var(--background-color);
+}
+
+.tab.active {
+  background: var(--accent-color);
+  color: var(--nord0);
+}
+
+/*Content area */
+.settings-content {
+  flex: 1;
+  padding: clamp(24px, 3vw, 48px);
+  background: var(--box-color);
+  color: var(--main-color);
+  box-sizing: border-box;
+  overflow-y: auto;
+  border-radius: 0 0 16px 16px;
+}
+
+/* Panels */
+.panel {
+  display: none;
+}
+
+.link {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.panel.active {
+  display: block;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.panel h2 {
+  color: var(--accent-color);
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: clamp(1.3rem, 2vw, 1.8rem);
+}
+
+/* ⚙️ Each setting row */
+.setting {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--navbar-color);
+  padding: clamp(10px, 1.5vw, 14px) clamp(14px, 2vw, 20px);
+  margin: clamp(8px, 1vw, 14px) 0;
+  border-radius: 8px;
+  box-sizing: border-box;
+  gap: 1rem;
+}
+
+.setting label {
+  color: var(--main-color);
+  font-size: clamp(0.9rem, 1vw, 1rem);
+}
+
+input[type="text"],
+input[type="password"],
+select {
+  background: var(--nord2);
+  border: 1px solid var(--nord3);
+  color: var(--main-color);
+  border-radius: 6px;
+  padding: clamp(6px, 1vw, 10px) clamp(8px, 1vw, 12px);
+  outline: none;
+  width: clamp(120px, 30%, 250px);
+  transition: all 0.2s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+select:focus {
+  border-color: var(--accent-color);
+}
+
+input[type="checkbox"],
+input[type="color"] {
+  accent-color: var(--accent-color);
+}
+
+/* ✨ Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes settingsFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeBackdrop {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 800px) {
+  #settings-container {
+    align-items: flex-start;
+    padding: 40px 10px;
+  }
+
+  .settings-box {
+    min-height: auto;
+  }
+
+  .setting {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tab {
+    flex: 1 1 45%;
+    text-align: center;
+  }
+}
