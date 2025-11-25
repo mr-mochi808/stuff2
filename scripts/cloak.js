@@ -64,7 +64,7 @@ function openBlobCloak() {
 
     const page = new ABC({
       type: "blob",
-      url: "https://deeperthandeepest.netlify.app"
+      url: "https://deep-offical.onrender.com"
     });
     page.open();
   } catch (err) {
